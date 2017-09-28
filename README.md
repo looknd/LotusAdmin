@@ -32,7 +32,7 @@
 
 
 ##部署Linux问题
- * 部署Linux系统的LNMP，需要重写伪静态规则，请按照我的博客教程修改nginx配置 http://www.cnblogs.com/wenhainan/p/7300352.html
+ * 部署Linux系统的LNMP(apache没有问题)需要重写伪静态规则，请按照我的博客教程修改nginx配置 http://www.cnblogs.com/wenhainan/p/7300352.html
 
 
 ##捐助开发者
