@@ -1,0 +1,87 @@
+{include file="public/head"}
+<div class="x-body">
+    <div>
+    	<ul id="tree" class="ztree"></ul>
+    </div>
+    <div>
+    	<button id="auth-btn"  class="layui-btn layui-btn-small">提交</button>
+    </div>
+</div>
+<link rel="stylesheet" href="__module__/ztree/css/metroStyle/metroStyle.css" type="text/css">
+<script type="text/javascript" src="__module__/ztree/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="__module__/ztree/js/jquery.ztree.core.js"></script>
+<script type="text/javascript" src="__module__/ztree/js/jquery.ztree.excheck.js"></script>
+<script type="text/javascript">
+$(function(){
+        var tree = $("#tree");
+        var zTree;
+        var setting = {
+            check: {
+                enable: true
+            },
+            view: {
+                dblClickExpand: false,
+                showLine: true,
+                showIcon: true,
+                selectedMulti: false
+            },
+            data: {
+                simpleData: {
+                    enable: true,
+                    idKey: "id",
+                    pIdKey: "pid",
+                    rootpid: ""
+                },
+                key: {
+                    name: "title"
+                }
+            }
+        };
+    //加载树形菜单
+    $.ajax({
+            url: "{:url('admin/auth/getJson')}",
+            type: "post",
+            dataType: "json",
+            cache: false,
+            data: {
+                id: {$id}
+            },
+            success: function (data){
+                zTree = $.fn.zTree.init(tree, setting, data);
+            }
+    });
+    /**
+     * 授权提交
+     */
+    $("#auth-btn").bind("click", function (){
+            var checked_ids,auth_rule_ids = [];
+            checked_ids = zTree.getCheckedNodes(); // 获取当前选中的checkbox
+            $.each(checked_ids, function (index, item) {
+                auth_rule_ids.push(item.id);
+            });
+           
+            $.ajax({
+                url: "{:url('admin/auth/updateAuthGroupRule')}",
+                type: "post",
+                cache: false,
+                data: {
+                    id: {$id},
+                    auth_rule_ids: auth_rule_ids
+                },
+                success: function (data) {
+                    console.log(data);
+                    if(data.code === 1){
+                        layer.msg(data.msg,{icon:1,time:1000,offset:'t'},function(){
+                            x_admin_close();
+                            parent.location.reload();
+                        })
+                    }else{
+                        layer.msg(data.msg,{icon:2,offset:'t'}); 
+                    }
+                }
+            });
+    });
+})
+
+</script>
+{include file="public/foot"}	

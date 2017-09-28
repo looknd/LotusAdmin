@@ -1,0 +1,149 @@
+{include file='public/head'}
+<body>
+    <style media="screen" type="text/css">
+        header {
+    color: black;
+}
+    </style>
+    <div class="x-body">
+        <form action="add" class="layui-form" id="mainForm" method="post" style="margin-right: 20px;">
+            
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    上级菜单
+                </label>
+                <div class="layui-input-block">
+                    <select lay-filter="aihao" name="pid" id='pid'>
+                        <option value="0">顶级菜单
+                        </option>
+                         {volist name='auth' id='vo'}
+                                <option value="{$vo.id}">{$vo.level-1|str_repeat='丨--',###}{$vo.title}</option>
+                         {/volist}
+                    </select>
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    菜单名称
+                </label>
+                <div class="layui-input-block">
+                    <input autocomplete="off" class="layui-input" id="title" lay-verify="required" name="title" placeholder="请输入菜单名称" type="text">
+                    </input>
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    控制器
+                </label>
+                <div class="layui-input-block">
+                    <input autocomplete="off" class="layui-input" id="name" lay-verify="required" name="name" placeholder="请输入控制器" type="text">
+                    </input>
+                </div>
+            </div>
+
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    图标icon
+                </label>
+                <div class="layui-input-block">
+                    <input autocomplete="off" class="layui-input" id="icon"  name="icon" placeholder="请输入图标类，不熟悉font-some请留空" type="text">
+                    </input>
+                </div>
+            </div>
+
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    状态
+                </label>
+                <div class="layui-input-block">
+                     <select name="status" id='status' lay-filter="aihao" name="interest">
+                        <option value="1" >显示
+                        </option>
+                          <option value="0" >隐藏
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    排序
+                </label>
+                <div class="layui-input-block">
+                    <input autocomplete="off" class="layui-input" id="sort"  lay-verify="required" name="sort" placeholder="排序数值越大排列越靠前" type="text" value="0">
+                    </input>
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn"  lay-filter="toSubmit" lay-submit=""  style="margin-left: 33%">
+                        提交
+                    </button>
+                    <button style="display: none;" class="layui-btn layui-btn-primary" id="reset" type="reset">
+                        重置
+                    </button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</body>
+<script type="text/javascript">
+	var form = layui.form;
+	var layer = layui.layer;
+			  //自定义验证规则
+			  form.verify({
+			    title: function(value){
+			      if(value.length < 3){
+			        return '标题至少得2个字符啊';
+			      }
+			    }
+			  });
+		//监听提交
+		form.on('submit(demo1)', function(data){
+		      layer.alert(JSON.stringify(data.field), {
+		      title: '最终的提交信息'
+		    })
+		    return false;
+		  });
+	$(document).ready(function(){ 
+	     var options = {
+		      type:'post',           //post提交
+		      //url:'http://ask.tongzhuo100.com/server/****.php?='+Math.random(),   //url
+		      dataType:"json",        //json格式
+		      data:{},    //如果需要提交附加参数，视情况添加
+		      clearForm: false,        //成功提交后，清除所有表单元素的值
+		      resetForm: false,        //成功提交后，重置所有表单元素的值
+		      cache:false,          
+		      async:false,          //同步返回
+		      success:function(data){
+		      	    console.log(data);
+    		      	if(data.code==0){
+    		      		layer.msg(data.msg);
+    		      	}else{
+    		      		layer.msg(data.msg,{icon:1},function(){
+    		      			$("#reset").click();
+    		      			x_admin_close();
+    		      			parent.location.reload();
+    		      		});
+    		      	}
+    		      //服务器端返回处理逻辑
+		      	},
+		      	error:function(XmlHttpRequest,textStatus,errorThrown){
+		        	layer.msg('操作失败:服务器处理失败');
+		      }
+		    }; 
+	    // bind form using 'ajaxForm' 
+	    $('#mainForm').ajaxForm(options).submit(function(data){
+	    	//无逻辑
+	    }); 
+
+	});
+</script>
+ 
+{include file='public/foot'}

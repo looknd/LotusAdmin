@@ -1,0 +1,96 @@
+{include file="public/head"}
+  <style type="text/css">
+      input::-webkit-input-placeholder {
+         color: #aab2bd;
+         font-size: 14px;
+     }
+     input {
+        padding-left: 5px;
+     }
+  </style>
+  <body>
+    <div class="x-body">
+        <div   class="layui-row">
+          <input id="role_name" name="role_name" style="height:25px;" placeholder="请输入角色名称">
+          <button style="margin-left: 10px;" class="layui-btn layui-btn-small " onclick="addRole()"></i>添加角色</button>
+          <button onclick="javascript:location.reload()" class="layui-btn layui-btn-small">刷新</button>
+          <span class="x-right" style="line-height:40px">共有数据:{$role->total()}条</span>
+        </div>
+    <table class="layui-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>角色</th>
+            <th>操作</th>
+        </thead>
+        <tbody>
+          {volist name='role' id='vo'}
+          <tr>
+            <td>{$vo.id}</td>
+            <td>{$vo.title}</td> 
+            <td>
+                <button class="layui-btn layui-btn-mini" onclick="x_admin_show('用户授权','showAuth.html?id={$vo.id}',500,350)">授权</button>
+                <button class="layui-btn layui-btn-mini" onclick="x_admin_show('角色编辑','showRoleEdit.html?id={$vo.id}',500,250)">编辑</button>
+                <button onclick="delRole(this,{$vo.id})" class="layui-btn layui-btn-mini layui-btn-danger">删除</button>
+             </td>
+          </tr>
+          {/volist}
+        </tbody>
+      </table>
+        <div class="page">
+          <div>
+            {$role->render()}
+          </div>
+        </div>
+    </div>
+</body>
+<script>
+function addRole(){
+  var role_name = $("#role_name").val();
+  if(role_name.length==0){
+      layer.msg('角色名不能为空',{icon:2});
+      return false;
+  }
+  if(role_name.length<2){
+      layer.msg('角色名过短',{icon:2});
+      return false;
+  }
+  $.ajax({
+     url: 'addRole',
+     type: 'post',
+     dataType: 'json',
+     data: {role_name: role_name},
+   })
+   .done(function(data) {
+     console.log(data);
+     if(data.code==1){
+        layer.msg(data.msg,{icon:1,offset:"t",time:1000},function(){
+            location.reload();
+        });
+     }else{
+        layer.msg(data.msg,{icon:2});
+     }
+   })
+}
+function delRole(obj,id){
+   layer.confirm('确认要全部删除吗？',function(index){
+        $.ajax({
+    url: 'delRole',
+    type: 'post',
+    dataType: 'json',
+    data: {id:id},
+  })
+  .done(function(data){
+      if(data.code==1){
+          layer.msg(data.msg,{icon:1,offset:"t",time:1000},function(){
+              location.reload();
+          });
+       }else{
+          layer.msg(data.msg,{icon:2,offset:"t"});
+       }
+    })
+   })
+}
+
+</script>
+{include file="public/foot"}
