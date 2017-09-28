@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ApiAdmin - 专注于Api的开发和管理</title>
+  <meta name="keywords" content="layui,ui,前端框架,JS组件">
+  <meta name="description" content="经典模块化前端框架">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"> 
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="stylesheet" href="./layui/css/layui.css"  media="all">
+  <link rel="stylesheet" href="./layui/css/apiadmin.css" media="all">
+  <!--<script src="./layui/layui.js" charset="utf-8"></script>-->
+  <script src="./layui/layui.all.js" charset="utf-8"></script>
+</head>
+<body class="site-home" id="LAY_home" style="background-color: #eee;">
+<div class="layui-header header header-index">
+  <div class="layui-main">
+    <a class="logo" href="/" style="font-size: 1.9em;line-height: 1em;color: #eee;">
+      ApiAdmin
+    </a>
+    <ul class="layui-nav" pc>
+      <li class="layui-nav-item ">
+        <a href="http://www.w3cschool.cn/apiadmin_v2/" target="_blank">文档</a>
+      </li>
+      <li class="layui-nav-item ">
+        <a href="https://admin.apiadmin.org/" target="_blank">示例</a>
+      </li>
+      <!--<li class="layui-nav-item" pc>
+        <a href="http://fly.layui.com/" target="_blank">社区</a>
+      </li>-->
+      <!--<li class="layui-nav-item" pc>
+        <a href="javascript:;">周边</a>
+        <dl class="layui-nav-child">
+          <dd><a href="http://layim.layui.com/" target="_blank">即时聊天</a></dd>
+          <dd><a href="http://fly.layui.com/jie/8157.html" target="_blank">社区模板</a></dd>
+          <dd><a href="http://fly.layui.com/jie/9842.html" target="_blank">Axure组件</a></dd>
+        </dl>
+      </li>-->
+    </ul>
+  </div>
+</div>
+<div class="site-banner">
+  <div class="site-banner-bg" style="background: url(http://dl.bizhi.sogou.com/images/2012/02/16/174939.jpg) left top no-repeat;background-size:cover; background-color: #010600;">
+  </div>
+  <div class="site-banner-main">
+    <div class="site-zfj">
+      <i class="layui-icon" style="color: #fff; color: rgba(255,255,255,.7);">&#xe609;</i>
+    </div>
+    <div class="layui-anim" style="line-height: 2.6em;color: #eee;font-size: 2.5em;">
+        专注于API开发和管理
+    </div>
+    <div class="site-download">
+      <a href="http://git.oschina.net/apiadmin/ApiAdmin/repository/archive/v2.0.1" class="layui-inline site-down" target="_blank">
+        <cite class="layui-icon">&#xe601;</cite>
+        立即下载
+      </a> 
+    </div>
+    <div class="site-version">
+      <span>当前版本：<cite class="site-showv">v2.0.1</cite></span>
+      <span><a href="http://git.oschina.net/apiadmin/ApiAdmin/releases" target="_blank">更新日志</a></span>
+      <span>下载量：<em class="site-showdowns">2782</em></span>
+    </div>
+  </div>
+</div>
+<div class="layui-main">
+  <ul class="site-idea">
+    <li>
+      <fieldset class="layui-elem-field layui-field-title">
+        <legend>文档自动生成</legend>
+        <p>对于程序员而言，最痛苦的莫过于看没有文档的代码，以及给自己的代码写文档。在ApiAdmin的世界里，你只需要简单几步，文档唾手可得！</p>
+      </fieldset>
+    </li>
+    <li>
+      <fieldset class="layui-elem-field layui-field-title">
+        <legend>输入参数过滤</legend>
+        <p>产品是严谨的，测试是严苛的，每一个数据都是要验证的，每个接口都必不可少，所以我们是时候专注于业务，而不用在意这些“细节”了！</p>
+      </fieldset>
+    </li>
+    <li>
+      <fieldset class="layui-elem-field layui-field-title">
+        <legend>输出参数规整</legend>
+        <p>PHP是一个弱类型语言，json_encode更是喜欢“自作主张”，每次都会因为数据类型的问题带来很多麻烦，ApiAdmin帮你，彻底解决痛点！</p>
+      </fieldset>
+    </li>
+  </ul>
+  <ul class="site-idea">
+    <li>
+      <fieldset class="layui-elem-field layui-field-title">
+        <legend>融合三方接口</legend>
+        <p>一个人的力量在强大也不如一个团队，ApiAdmin可以很好的接入第三方接口，当然别人接我们也是没问题的，多语言的SDK正在准备中....</p>
+      </fieldset>
+    </li>
+    <li>
+      <fieldset class="layui-elem-field layui-field-title">
+        <legend>动态数据加载</legend>
+        <p>后台列表全部采用Datatables.js来实现列表数据动态刷新，不论是翻页还是搜索，都大幅度提升了用户体验！</p>
+      </fieldset>
+    </li>
+    <li>
+      <fieldset class="layui-elem-field layui-field-title">
+        <legend>二次开发友好</legend>
+        <p>如果你想自己做点什么，ApiAdmin允许你从头自定义到尾。项目名称、项目版本、数据过滤规则，数据输出方式，数据获取方式....</p>
+      </fieldset>
+    </li>
+  </ul>
+</div>
+<div class="layui-main">
+  <script src='//git.oschina.net/apiadmin/ApiAdmin/widget_preview'></script>
+  <style>
+    .pro_name a{color: #4183c4;}
+    .osc_git_title{background-color: #fff;}
+    .osc_git_box{background-color: #fff;}
+    .osc_git_box{border-color: #E3E9ED;}
+    .osc_git_info{color: #666;}
+    .osc_git_main a{color: #9B9B9B;}
+  </style>
+</div>
+<div class="layui-footer footer footer-index">
+  <div class="layui-main">
+    <p>&copy; 2017 <a href="/">apiadmin.org</a> <a href="https://www.apache.org/licenses/LICENSE-2.0.html">Apache License2.0</a></p>
+    <p>
+      <a href="https://admin.apiadmin.org/" target="_blank">案例</a>
+      <a href="javascript:layer.msg('请在开源项目中捐赠！');" target="_blank">捐赠</a>
+      <a href="https://shang.qq.com/wpa/qunwpa?idkey=418f5fcc40296c2dfb4ec9fcfb038408ffcb74d2bbb000681aebbb01c035ccc4" target="_blank">联系我们</a>
+      <a href="http://git.oschina.net/apiadmin/ApiAdmin" target="_blank">Git仓库</a>
+      <a href="http://git.oschina.net/apiadmin/apiadmin-wxpro" target="_blank">微信小程序</a>
+    </p>
+  </div>
+</div>
+<div class="site-tree-mobile layui-hide">
+  <i class="layui-icon">&#xe602;</i>
+</div>
+<div class="site-mobile-shade"></div>
+</body>
+</html>

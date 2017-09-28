@@ -12,7 +12,7 @@ class Main extends Controller
     {
         $username  = session('username');
         if (empty($username)) {
-            $this->redirect('admin/user/index');
+            $this->redirect('admin/user/login');
         }
         $this->getMenu();
     }

@@ -9,9 +9,8 @@ use think\Validate;
 class User extends Controller
 {
 
-    public function index()
-    {
-        return $this->fetch();
+    public function index(){
+        return $this->fetch('login');
     }
 
     public function login()
