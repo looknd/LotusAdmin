@@ -31,10 +31,10 @@
 </div>
 <div class="swiper-container swiper-container-vertical">
     <div class="swiper-wrapper">
-        
+
         <div class="swiper-slide page1" style="height: 959px; margin-bottom: 30px;background-image:green; ">
             <div class="text">
-                    <a class="download" href="http://down.360safe.com/cse/360cse_9.0.1.146.exe"></a>
+                    <a class="download" href="javascript:tip()"></a>
             </div>
         </div>
         
@@ -78,6 +78,7 @@
 {/block}
 
 {block name='script'}
+<script src="__module__/layer/layer.js"></script>
 <script type="text/javascript">
     var swiper = new Swiper('.swiper-container', {
 		        pagination: '.swiper-pagination',
@@ -89,5 +90,19 @@
                 effect:'coverflow',
                 autoplay: 8000
 		    });
+    function tip(){
+        layer.confirm('各位用户老爷们,看在我这么努力的份上,无论如何给颗星吧！！！',
+            {title:'别急悟空！',
+            btn:['一定给','看心情咯']},
+            function(){
+                location.href = 'https://gitee.com/wenhainan/LotusAdmin';
+            },
+            function(){
+                layer.msg('哟，这么傲娇,再让你等上6秒钟，来来来打我呀。。。23333',{time:6000},function(){
+                    location.href = 'https://gitee.com/wenhainan/LotusAdmin';
+                })
+            }
+            );
+    }
 </script>
 {/block}
