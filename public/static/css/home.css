@@ -251,13 +251,13 @@ html, body {
     background-image: url("http://p3.qhimg.com/t0150373debf4e08390.png");
     height: 619px;
     margin: -300px 0 0 -400px;
-    width: 948px
+    width: 1000px
 }
 
 .page3 .mb {
-    background-image: url("http://p2.qhimg.com/t01b4756c33e4a05f76.png");
+    background-image: url("/public/static/images/pic_one.png");
     height: 785px;
-    margin: -440px 0 0 -500px;
+    margin: -340px 0 0 -500px;
     width: 976px
 }
 

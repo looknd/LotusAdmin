@@ -17,9 +17,9 @@ return [
     // 数据库名
     'database'        => 'lotus',
     // 用户名
-    'username'        => 'root',
+    'username'        => 'lotus',
     // 密码
-    'password'        => '123456',
+    'password'        => 'whnde123',
     // 端口
     'hostport'        => '',
     // 连接dsn
