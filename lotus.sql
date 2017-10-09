@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-09-28 14:32:40
+Date: 2017-10-09 15:40:37
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -122,10 +122,10 @@ CREATE TABLE `sm_auth_rule` (
 -- ----------------------------
 -- Records of sm_auth_rule
 -- ----------------------------
-INSERT INTO `sm_auth_rule` VALUES ('1', 'admin/user/default', '用户管理', '1', '1', '0', '', '0', '');
-INSERT INTO `sm_auth_rule` VALUES ('2', 'admin/user/userlist', '用户列表', '1', '1', '1', '', '0', '');
-INSERT INTO `sm_auth_rule` VALUES ('3', 'admin/auth/index', '权限管理', '1', '1', '1', '', '0', '');
-INSERT INTO `sm_auth_rule` VALUES ('103', 'admin/auth/showRole', '角色列表', '1', '1', '1', '', '0', '');
+INSERT INTO `sm_auth_rule` VALUES ('1', 'admin/user/default', '用户管理', '1', '1', '0', '2', '0', '');
+INSERT INTO `sm_auth_rule` VALUES ('2', 'admin/user/userlist', '用户列表', '1', '1', '1', '3', '0', '');
+INSERT INTO `sm_auth_rule` VALUES ('3', 'admin/auth/index', '权限管理', '1', '1', '1', '4', '0', '');
+INSERT INTO `sm_auth_rule` VALUES ('103', 'admin/auth/showRole', '角色列表', '1', '1', '1', '5', '0', '');
 
 -- ----------------------------
 -- Table structure for sm_category
@@ -266,5 +266,4 @@ CREATE TABLE `sm_user` (
 -- Records of sm_user
 -- ----------------------------
 INSERT INTO `sm_user` VALUES ('27', 'wenhainande', '121144d6c3114c583415f06860ad3710', '', 'whnde@qc.com', '1', '2017-09-26 05:28:15', null, '0.0.0.0');
-INSERT INTO `sm_user` VALUES ('28', 'testsad', '121144d6c3114c583415f06860ad3710', '', 'whnde@11.com', '1', '2017-09-26 05:49:52', null, '0.0.0.0');
-INSERT INTO `sm_user` VALUES ('1', 'admin', 'e10adc3949ba59abbe56e057f20f883e', '', 'whnde@qq.com', '1', '2017-09-20 07:01:19', '2017-09-28 02:20:14', '127.0.0.1');
+INSERT INTO `sm_user` VALUES ('1', 'admin', 'e10adc3949ba59abbe56e057f20f883e', '', 'whnde@qq.com', '1', '2017-09-20 07:01:19', '2017-10-09 11:11:07', '127.0.0.1');
