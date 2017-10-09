@@ -79,7 +79,7 @@ class auth extends Main
             $this->success('success');
         }
     }
-     function showRole(){
+    function showRole(){
         $role = Db::name('auth_group')
             ->order('id desc')
             ->paginate('15');
