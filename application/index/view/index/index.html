@@ -1,1 +1,85 @@
 {extend name='base'}
+{block name="css"}
+
+{/block}
+{block name='content'}
+<div class="header">
+    <h1 class="logo">
+    </h1>
+    <ul class="nav">
+        <li>
+            <a href="http://lay.com">
+                首页
+            </a>
+        </li>
+        <li>
+            <a href="admin/user/index" target="_blank">
+                后台演示
+            </a>
+        </li>
+        <li>
+            <a href="https://gitee.com/wenhainan/LotusAdmin" target="_blank">
+                源码
+            </a>
+        </li>
+        <li>
+            <a href="http://www.cnblogs.com/wenhainan/" target="_blank">
+                闻海南博客
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="swiper-container swiper-container-vertical">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide page1" style="height: 959px; margin-bottom: 30px;background-image:green; ">
+            <div class="text">
+                    <a class="download" href="http://down.360safe.com/cse/360cse_9.0.1.146.exe"></a>
+            </div>
+
+
+        </div>
+        <div class="swiper-slide page2" style="width:100%;height: 959px; margin-bottom: 30px;background-color:black;">
+           
+            <div class="code" >
+            </div>       
+        </div>
+   
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets">
+        <span class="swiper-pagination-bullet swiper-pagination-bullet-active">
+        </span>
+        <span class="swiper-pagination-bullet">
+        </span>
+        <span class="swiper-pagination-bullet">
+        </span>
+        <span class="swiper-pagination-bullet">
+        </span>
+        <span class="swiper-pagination-bullet">
+        </span>
+        <span class="swiper-pagination-bullet">
+        </span>
+        <span class="swiper-pagination-bullet">
+        </span>
+        <span class="swiper-pagination-bullet">
+        </span>
+        <span class="swiper-pagination-bullet">
+        </span>
+        <span class="swiper-pagination-bullet">
+        </span>
+    </div>
+</div>
+{/block}
+
+{block name='script'}
+<script type="text/javascript">
+    var swiper = new Swiper('.swiper-container', {
+		        pagination: '.swiper-pagination',
+		        direction: 'vertical',
+		        slidesPerView: 1,
+		        paginationClickable: true,
+		        spaceBetween: 30,
+		        mousewheelControl: true
+		    });
+</script>
+{/block}

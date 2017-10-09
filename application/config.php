@@ -145,7 +145,8 @@ return [
         '__static__'=>'/public/static',
         '__module__'=>'/public/static/module',
         '__js__'=>'/public/static/js',
-        '__css__'=>'/public/static/css'
+        '__css__'=>'/public/static/css',
+         '__images__'=>'/public/static/images',
         
     ],
     // 默认跳转页面对应的模板文件
